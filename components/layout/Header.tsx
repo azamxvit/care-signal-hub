@@ -6,12 +6,10 @@ import { Button } from "@/components/shared/button";
 import { Input } from "@/components/shared/input";
 
 export function Header() {
-  // В будущем данные врача будем получать из Supabase
   const doctorName = "Др. Смагулов";
 
   return (
     <div className="flex w-full items-center justify-between gap-4">
-      {/* Мобильная кнопка меню (показывается только на маленьких экранах) */}
       <div className="flex items-center md:hidden">
         <Button variant="ghost" size="icon" className="-ml-2">
           <Menu className="h-5 w-5" />

@@ -18,7 +18,7 @@ export function Sidebar() {
 
   return (
     <div className="flex h-full flex-col justify-between p-4">
-      {/* Логотип */}
+      {/* Лого */}
       <div>
         <div className="mb-8 flex items-center gap-2 px-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--teal-500)] text-white">
@@ -29,7 +29,7 @@ export function Sidebar() {
           </span>
         </div>
 
-        {/* Навигация */}
+        {/* Нав */}
         <nav className="flex flex-col gap-1">
           {navItems.map((item) => {
             const isActive = pathname === item.href;

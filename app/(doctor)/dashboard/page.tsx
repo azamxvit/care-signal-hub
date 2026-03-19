@@ -6,7 +6,6 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
       
-      {/* Заголовок страницы */}
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)]">Обзор пациентов</h1>
         <p className="text-sm opacity-60 mt-1">
@@ -14,7 +13,6 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* Верхние карточки статистики */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="border-[var(--status-danger)]/20 bg-gradient-to-br from-[var(--danger-bg)] to-transparent">
           <CardHeader className="pb-2">
@@ -41,17 +39,16 @@ export default function DashboardPage() {
             <CardTitle>AI Аналитика</CardTitle>
           </CardHeader>
           <CardContent>
-            {/* И здесь обновили цвет на primary */}
+
             <div className="text-3xl font-bold text-[var(--primary-500)]">5</div>
             <p className="text-xs opacity-60 mt-1">Новых рекомендаций сформировано</p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Место под основной контент (список пациентов и рекомендации) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-2">
         <div className="lg:col-span-2">
-          {/* 🔥 Вот здесь теперь наш реальный компонент вместо пунктирной карточки */}
+            
           <PatientList />
         </div>
         <div className="lg:col-span-1">

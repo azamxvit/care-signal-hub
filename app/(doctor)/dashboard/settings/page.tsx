@@ -19,7 +19,7 @@ export default function SettingsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         
-        {/* Боковое мини-меню настроек (для визуальной красоты) */}
+        {/* Боковое мини-меню */}
         <div className="flex flex-col gap-1 md:col-span-1">
           <Button variant="secondary" className="justify-start gap-3 bg-[var(--surface-2)]">
             <User className="h-4 w-4" /> Профиль

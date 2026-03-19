@@ -5,15 +5,11 @@ import { AlertTriangle, Activity, BellRing, Check, MapPin, Filter } from "lucide
 import { Card } from "@/components/shared/card";
 import { Button } from "@/components/shared/button";
 import { cn } from "@/lib/utils";
-
-const allAlerts = [
-  { id: "1", patient: "Ахметов Серик", type: "sos", message: "Обнаружено падение / SOS", time: "2 мин назад", severity: "danger", status: "active" },
-  { id: "2", patient: "Иванова Елена", type: "vitals", message: "Критический пульс (135 уд/мин)", time: "15 мин назад", severity: "danger", status: "active" },
-  { id: "3", patient: "Ким Александр", type: "vitals", message: "SpO2 упал до 91%", time: "1 час назад", severity: "warning", status: "active" },
-  { id: "4", patient: "Оспанов Тимур", type: "device", message: "Низкий заряд устройства (5%)", time: "3 часа назад", severity: "warning", status: "resolved" },
-];
+import { useAlerts } from "@/hooks/useAlerts";
 
 export default function AlertsPage() {
+  const { alerts, resolveAlert } = useAlerts();
+
   return (
     <div className="flex flex-col gap-6">
       
@@ -34,7 +30,7 @@ export default function AlertsPage() {
       {/* Таблица алертов */}
       <Card className="overflow-hidden border-[var(--border)]">
         <div className="flex flex-col divide-y divide-[var(--border)]">
-          {allAlerts.map((alert) => (
+          {alerts.map((alert) => (
             <div key={alert.id} className={cn(
               "flex flex-col md:flex-row md:items-center justify-between p-4 transition-colors hover:bg-[var(--surface-2)] gap-4",
               alert.status === "resolved" ? "opacity-60 grayscale-[50%]" : (alert.severity === "danger" ? "bg-[var(--danger-bg)]/30" : "")
@@ -68,7 +64,13 @@ export default function AlertsPage() {
                       <MapPin className="h-3 w-3" /> Геолокация
                     </Button>
                   )}
-                  <Button size="sm" variant={alert.severity === "danger" ? "sos" : "default"} className="h-8 gap-2">
+
+                  <Button 
+                    size="sm" 
+                    variant={alert.severity === "danger" ? "sos" : "default"} 
+                    className="h-8 gap-2"
+                    onClick={() => resolveAlert(alert.id)}
+                  >
                     <Check className="h-3 w-3" /> Принять вызов
                   </Button>
                 </div>
@@ -78,6 +80,7 @@ export default function AlertsPage() {
           ))}
         </div>
       </Card>
+      
     </div>
   );
 }

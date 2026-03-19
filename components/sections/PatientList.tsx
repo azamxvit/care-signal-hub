@@ -9,7 +9,6 @@ import { Card } from "@/components/shared/card";
 import { VitalStatus } from "@/lib/types";
 import Link from "next/link";
 
-// Временные данные для визуала (потом заменим на данные из Supabase)
 const mockPatients = [
   {
     id: "1",
@@ -53,7 +52,7 @@ export function PatientList() {
               href={`/dashboard/patients/${patient.id}`}
               className="flex flex-col sm:flex-row sm:items-center justify-between p-4 hover:bg-[var(--surface-2)] transition-colors gap-4 cursor-pointer"
             >  
-              {/* Левая часть: Профиль */}
+              {/* Профиль */}
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <Avatar>
@@ -69,7 +68,7 @@ export function PatientList() {
                 </div>
               </div>
 
-              {/* Центральная часть: Витальные показатели */}
+              {/* показатели */}
               <div className="flex items-center gap-4 text-sm">
                 <div className="flex items-center gap-1.5" title="Пульс (уд/мин)">
                   <Heart className={patient.status === "danger" ? "h-4 w-4 text-[var(--status-danger)] animate-pulse" : "h-4 w-4 text-[var(--status-danger)]"} />
@@ -85,7 +84,7 @@ export function PatientList() {
                 </div>
               </div>
 
-              {/* Правая часть: Статус и кнопка */}
+              {/* Статус и кнопка */}
               <div className="flex items-center justify-between sm:justify-end gap-3 min-w-[140px]">
                 <div className="hidden lg:block text-xs opacity-50">{patient.time}</div>
                 <StatusBadge status={patient.status} />
