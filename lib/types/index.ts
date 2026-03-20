@@ -22,6 +22,13 @@ export interface VitalDataPoint {
   spo2: number;
 }
 
+export interface PatientBiometrics {
+  blood_type: string | null;
+  height_cm: number | null;
+  weight_kg: number | null;
+  allergies: string[];
+}
+
 export interface Patient {
   id: string;
   full_name: string;
@@ -35,7 +42,10 @@ export interface Patient {
   device_online: boolean;
   user_id: string | null;
   latest_reading: VitalReading | null;
-  
+
+  biometrics?: PatientBiometrics;
+  medications?: string[];
+  doctor_notes?: string;
 
   vitals_history?: VitalDataPoint[]; 
 }

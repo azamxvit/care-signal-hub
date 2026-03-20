@@ -33,18 +33,31 @@ export const MOCK_PATIENTS: Patient[] = [
       id: "r1", patient_id: "1", recorded_at: new Date().toISOString(),
       heart_rate: 115, systolic_bp: 160, diastolic_bp: 95, spo2: 96, steps: 3200, temperature: 36.8
     },
+    biometrics: {
+      blood_type: "II (A) Rh+",
+      height_cm: 175,
+      weight_kg: 82,
+      allergies: ["Пенициллин", "Пыльца"]
+    },
+    medications: ["Лизиноприл 10мг", "Аспирин кардио 100мг", "Метопролол 50мг"],
+    doctor_notes: "Наблюдается ухудшение состояния после физнагрузки. Рекомендован покой.",
     vitals_history: generateHistory()
   },
   { 
     id: "2", full_name: "Иванова Елена", birth_date: "1966-08-21", village: "Атырау", district: "Городская зона", phone: "+7 777 123 45 67",
     diagnoses: ["Стенокардия"], risk_level: "warning", device_id: "GW6-992", device_online: true, user_id: "user-2",
     latest_reading: { id: "r2", patient_id: "2", recorded_at: new Date().toISOString(), heart_rate: 88, systolic_bp: 135, diastolic_bp: 85, spo2: 94, steps: 1500, temperature: 36.6 },
+    biometrics: { blood_type: "I (0) Rh-", height_cm: 164, weight_kg: 68, allergies: [] },
+    medications: ["Нитроглицерин (при приступах)"],
+    doctor_notes: "Состояние стабильное. Жалоб нет.",
     vitals_history: generateHistory()
   },
   { 
     id: "3", full_name: "Оспанов Тимур", birth_date: "1993-02-15", village: "Индербор", district: "Индерский район", phone: "+7 702 987 65 43",
     diagnoses: ["Здоров", "Мониторинг"], risk_level: "ok", device_id: "MBAND-8", device_online: true, user_id: "user-3",
     latest_reading: { id: "r3", patient_id: "3", recorded_at: new Date().toISOString(), heart_rate: 72, systolic_bp: 120, diastolic_bp: 80, spo2: 99, steps: 8400, temperature: 36.7 },
+    biometrics: { blood_type: "III (B) Rh+", height_cm: 182, weight_kg: 79, allergies: ["Цитрусовые"] },
+    medications: [],
     vitals_history: generateHistory()
   },
 ];
