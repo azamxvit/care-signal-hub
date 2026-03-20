@@ -38,7 +38,7 @@ export default function PatientDetailPage({ params }: PatientDetailPageProps) {
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] flex items-center gap-3">
               {patient.full_name}
-              <StatusBadge status={patient.risk_level} animated={patient.risk_level === 'danger'} />
+              <StatusBadge status={patient.risk_level} />
             </h1>
             <p className="text-sm opacity-60 mt-0.5">
               {age} года • {patient.district}
