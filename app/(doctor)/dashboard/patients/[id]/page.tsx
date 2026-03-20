@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { use } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Heart, Activity, Watch, Droplet, Clock, Thermometer, Phone, MapPin } from "lucide-react";
@@ -11,16 +12,17 @@ import { usePatients } from "@/hooks/usePatients";
 import { VitalsChart } from "@/components/widgets/VitalsChart";
 
 interface PatientDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default function PatientDetailPage({ params }: PatientDetailPageProps) {
+  const { id } = use(params);
+  
   const { findPatientById } = usePatients();
-  const patient = findPatientById(params.id);
+  const patient = findPatientById(id);
 
   if (!patient) notFound();
 
-  // расчет возраста для ui
   const birthYear = new Date(patient.birth_date).getFullYear();
   const age = new Date().getFullYear() - birthYear;
 
@@ -51,7 +53,7 @@ export default function PatientDetailPage({ params }: PatientDetailPageProps) {
         </div>
       </div>
 
-      {/* Инфо об устройстве и диагнозе */}
+      {/* Инфа об устройстве и диагнозе */}
       <Card className="bg-[var(--surface-2)]">
         <CardContent className="p-4 flex items-center justify-between gap-4">
           <div>
