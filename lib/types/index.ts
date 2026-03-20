@@ -14,6 +14,14 @@ export interface VitalReading {
   temperature: number | null;
 }
 
+export interface VitalDataPoint {
+  time: string;
+  pulse: number;
+  bp_sys: number;
+  bp_dia: number;
+  spo2: number;
+}
+
 export interface Patient {
   id: string;
   full_name: string;
@@ -27,6 +35,9 @@ export interface Patient {
   device_online: boolean;
   user_id: string | null;
   latest_reading: VitalReading | null;
+  
+
+  vitals_history?: VitalDataPoint[]; 
 }
 
 export interface Alert {
