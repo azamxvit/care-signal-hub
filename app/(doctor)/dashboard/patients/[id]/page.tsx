@@ -8,6 +8,7 @@ import { StatusBadge } from "@/components/shared/status-dot";
 import { usePatients } from "@/hooks/usePatients";
 import { VitalsChart } from "@/components/widgets/VitalsChart";
 import { Separator } from "@/components/shared/separator";
+import { AiReportCard } from "@/components/widgets/AiReportCard";
 
 interface PatientDetailPageProps {
   params: Promise<{ id: string }>;
@@ -177,7 +178,7 @@ export default async function PatientDetailPage({ params }: PatientDetailPagePro
         <Card className="bg-[var(--surface)] border-[var(--border)]">
           <CardContent className="p-5 flex flex-col gap-3">
             <div className="flex justify-between items-center text-xs text-neutral-500 font-medium">
-                {/* 🔥 Добавили текстовую подпись */}
+
                 <span className="flex items-center gap-2"><Droplet className="h-4 w-4 text-[#0ea5e9]" /> Кислород (SpO₂)</span>
             </div>
             <div className="mt-1">
@@ -192,7 +193,7 @@ export default async function PatientDetailPage({ params }: PatientDetailPagePro
         <Card className="bg-[var(--surface)] border-[var(--border)]">
           <CardContent className="p-5 flex flex-col gap-3">
              <div className="flex justify-between items-center text-xs text-neutral-500 font-medium">
-                {/* 🔥 Добавили текстовую подпись */}
+
                 <span className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-[var(--status-warn)]" /> Температура</span>
             </div>
             <div className="mt-1">
@@ -219,6 +220,9 @@ export default async function PatientDetailPage({ params }: PatientDetailPagePro
 
         {/* Диагнозы и Лекарства - Стилизовано под мобилку */}
         <div className="flex flex-col gap-6">
+
+            <AiReportCard patientName={patient.full_name} />
+
             {/* Диагнозы и Заметки */}
             <Card className="bg-[var(--surface)] border-[var(--border)]">
                 <CardHeader className="p-5 pb-3">
